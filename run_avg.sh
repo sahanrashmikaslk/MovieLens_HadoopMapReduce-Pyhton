@@ -27,8 +27,8 @@ bin/hadoop jar share/hadoop/tools/lib/hadoop-streaming-*.jar \
   -files "$MAPPER","$REDUCER" \
   -input  "$HDFS_BASE/ratings.csv" \
   -output "$OUTPUT_DIR" \
-  -mapper  "python3 $(basename "$MAPPER")" \
-  -reducer "python3 $(basename "$REDUCER")"
+  -mapper  "python3 mapper_avg.py" \
+  -reducer "python3 reducer_avg.py"
 
 # Show the results
 echo -e "\n--- Average ratings ---"
